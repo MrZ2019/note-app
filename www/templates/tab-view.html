@@ -1,0 +1,13 @@
+<ion-view view-title="{{viewTitle}}">
+  <ion-scroll direction="x " class="wide-scroll tab-buttons">
+        <a ng-repeat='cat in subcats' class="button button-outline button-orange" ng-class='{"active":curSubcat.id == cat.id}'  ng-click="onChangeSubcat(cat)">
+          <span>{{cat.name}}</span>
+        </a>      
+    </div>
+  </ion-scroll>
+
+    <div ng-show="(curSubcat.id == cat_view.id) && !isShowSlide" ng-repeat='cat_view in subcats' ng-include="'templates/tab-content.html'"></div>
+    <div ng-show='(curSubcat.id == cat_view.id) && isShowSlide' ng-repeat='cat_view in subcats' ng-include="'templates/tab-slide.html'" >
+    	
+    </div> 
+</ion-view>

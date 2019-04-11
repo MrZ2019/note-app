@@ -1,0 +1,265 @@
+#btn-sync {
+	position: absolute;
+	z-index: 100;
+	right: 4px;
+	top: 0px;
+	color: #fff;
+	line-height: 35px;
+	min-height: 35px;
+}
+ 
+[name=addtext_form] ion-header-bar * {
+    color: #fff;
+}
+
+[name=addtext_form] ion-header-bar *:hover {
+    color: #fff;
+}
+ 
+.top {
+    text-align: right;
+    min-height: 22px;
+    color: #777;
+    font-size: 13px;
+}
+
+.top .ion-ios-star {
+    color: yellow;
+}
+.category {
+    color: #777;
+    font-size: 12px;
+}
+
+.date {
+    color: #777;
+    font-size: 12px;   
+}
+
+.author {
+    padding-top: 24px;
+    color: #777;
+    text-align: right
+}
+
+.author {
+    font-size: 13px
+}
+.info {
+    text-align: right;
+    font-size: 12px;
+    color:#999;
+}
+
+.entry-popover {
+    opacity: 1;
+    height: 159px;  
+    top: 40%;
+}
+
+.home-tab {
+    position: absolute;
+    width: 100%;
+}
+
+a.button.button-outline.button-orange.active {
+    background: none;
+
+    color: orange;
+    border: none;
+}
+
+
+.button-bar > .button {
+    border: none;
+}
+
+.button-outline.button-outline.active, 
+.button-outline.button-outline.activated {
+    background: none;
+    color: orange;
+}
+
+[theme='green'] a.button.button-outline.button-orange.active {
+    color: green;
+}
+
+[theme='green'] .button-outline.button-outline.active, 
+[theme='green'] .button-outline.button-outline.activated {
+    color: green;
+}
+
+[theme='blue'] a.button.button-outline.button-orange.active {
+    color: darkblue;
+}
+
+[theme='blue'] .button-outline.button-outline.active, 
+[theme='blue'] .button-outline.button-outline.activated {
+    color: darkblue; 
+}
+
+.android .home-tab {
+    top: 86px;
+}
+
+.android .home-tab {
+    top: 93px;
+}
+
+.android .has-header.has-subheader.has-tabs-top {
+    top: 144px;
+    
+}
+
+.wide-scroll {
+  white-space: nowrap;
+  min-width: 100%;
+}
+
+.wide-scroll.tab-buttons {
+    position: relative;
+    top: 43px;
+}
+
+.wide-scroll.tab-buttons .button {
+    border: none;
+    padding-left: 24px;
+    padding-right: 24px;
+}  
+
+.android .wide-scroll.tab-buttons { 
+    top: 91px
+}
+
+.card .content {
+    white-space: pre-line;
+}
+
+.scroll-refresher {
+    top: -75px;
+}
+
+ion-item.item.activated {
+    background: #D9D9D9 !important
+}
+
+.loading-container .loading {
+    white-space: pre-wrap;
+}
+
+.button-orange {
+    background: orange;
+    color: #fff;
+    border-color: orange;
+}
+
+button.button.button-orange:hover {
+    color: white;
+}
+
+button.button.button-orange.activated {
+    background: orange;
+    color: #eee;
+    border-color: #fff;
+}
+
+#top-bg {
+    position: fixed;
+    top: -0px;
+    left: 0px;
+    width: 100%;
+    height: 47px;
+    opacity: .9;
+    z-index: -1 
+}
+.android #top-bg {
+	top: -44px;
+	height: 91px;
+}
+
+html[theme='orange'] #top-bg {
+    background: url(../img/top-bg.jpg)  -0px 0px;
+}
+html[theme='green'] #top-bg {
+    background: url(../img/green-bg.jpg)  -0px 0px;
+}
+html[theme='blue'] #top-bg {
+    background: url(../img/blue-bg.jpg)  -0px 0px;
+}
+html[theme='green'] ion-header-bar {
+	background: url(../img/green-bg.jpg);
+}
+html[theme='blue'] ion-header-bar {
+    background: url(../img/blue-bg.jpg);
+}
+html[theme='orange'] ion-header-bar {
+    background: url(../img/top-bg.jpg);
+}
+
+.android .bar-orange {
+    background: transparent
+} 
+
+.a-right {
+    text-align:right;
+}
+
+.tabs-orange > .tabs, .tabs.tabs-orange {
+    background: transparent;
+}  
+
+/* 幻灯片 */
+.btn-box {
+    position: absolute;
+    bottom: 4px;
+    width: 100%;
+    text-align: center;
+}
+.ion-android-arrow-back.btn-back-list {
+    color: silver !important;
+}
+
+.content-slide .scroll {
+    height: 100%;
+}
+
+.content-slide .box {
+    width: 80%;
+    margin: auto;
+    height: 80%;
+    top: 32px;
+    position: relative;
+}
+
+.content-slide .box .scroll-view {
+    height: 100%;
+}
+
+.content-slide .row-item {
+    color: #aaa;
+    text-align: center;
+    line-height: 48px;
+    min-height: 48px;
+}
+
+.content-slide .content {
+    color: #333;
+    white-space: pre-line;
+}
+
+.content-slide .icon {
+    color: silver;
+}
+
+.content-slide .ion-ios-star.stared {
+    color: yellow;
+}
+
+.icon.ion-pause {
+    width: 34px;
+} 
+
+/* common */
+.range {
+    padding: 2px 16px;
+}

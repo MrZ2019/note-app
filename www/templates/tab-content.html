@@ -1,0 +1,21 @@
+      <ion-content class='has-subheader tab-content' on-swipe='showSlide($event)'>
+          <ion-refresher on-refresh="refreshData(cat_view.id)" pulling-text="松开即可刷新..." refreshing-text="正在更新..."
+                 refreshing-icon="ion-loading-c"></ion-refresher>
+        <div class="list card" on-hold='addItem(row)' ng-repeat='row in cats[cat_view.id].rows track by $index' on-swipe='remove($event, row, cats[cat_view.id].rows, cats[cat_view.id].rows.table)' ng-click="showPopover($event, row, cats[cat_view.id].rows, cats[cat_view.id].rows.table)">
+          <div class="item item-body">
+            <div class="top">
+              <span class="row-item" ng-show='setting.showItem'>{{row.item || row.tag2}}</span>
+              <span class="icon ion-ios-star" ng-if='row._favorite'></span>
+              <span class="date" ng-if='setting.showDate'>{{row.date|date:'YYYY-mm-dd hh:MM'}}</span>
+            </div>
+            <div class='content'>
+              {{row.content}}
+            </div>
+          </div>
+        </div>
+
+        <ion-infinite-scroll distance="2"
+                     on-infinite="loadMoreData(cat_view.id)"
+                     ng-if="!cats[cat_view.id].noMoreItems && (curSubcat.id == cat_view.id) && hasData[cat_view.id]">
+        </ion-infinite-scroll>
+        </ion-content>

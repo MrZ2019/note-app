@@ -1,0 +1,37 @@
+.bar-orange{
+  background: orange;
+  color: #fff;
+}
+
+.tabs-orange > .tabs, .tabs.tabs-orange {
+  background: orange;
+  color: #fff;
+}
+
+.item p  {
+  white-space: normal;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+html[theme='orange'] .tab-item{
+  border-color: orange !important;
+}
+
+html[theme='green'] .tab-item{
+  border-color: green !important;
+}
+
+html[theme='blue'] .tab-item{
+  border-color: #4E8FD2 !important;
+}
+.fleft { 
+  float: left
+}
+.fright {
+  float: right;
+}
+

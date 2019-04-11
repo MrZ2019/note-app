@@ -1,0 +1,32 @@
+<ion-modal-view>
+
+  <style></style>
+  <form name="addtext_form">
+    <ion-header-bar class="bar-purple">
+      <button class="button  button-icon" ng-click="hideModal()">取消</button>
+      <h1 class="title">{{addform.id!==undefined ? '编辑': '增加'}}记录</h1>
+      <button class="button  button-icon" ng-disabled="addtext_form.$invalid" ng-click="doAdd()">提交</button>
+    </ion-header-bar>
+    <ion-content>
+      <div class="list">
+        <label class="item item-input">
+          <input type="text" placeholder="标签" ng-model='addform.tag2'>
+        </label>
+
+        <label class="item item-select item-input ">
+          <div class="input-label">
+                分类
+          </div>
+          <select ng-model='addform.type'>
+            <option ng-value="cat.id" ng-repeat='cat in curScope.subcats'>{{cat.name}}</option>
+          </select>
+        </label>
+<!--         <input type="text" ng-model="test">
+        <div>{{inpCat}}</div> -->
+        <label class="item item-input">
+          <textarea class="" placeholder="文字" rows='10' ng-model="addform.content" required></textarea>
+        </label>
+      </div>
+    </ion-content>
+  </form>
+</ion-modal-view>

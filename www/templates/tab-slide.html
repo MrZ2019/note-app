@@ -1,0 +1,15 @@
+<ion-content class='has-subheader tab-content content-slide'>  
+   <div class="box" on-swipe='changeItem($event)'>
+      <div class="row-item">{{myRows2[curSubcat.id][slideIndex[curSubcat.id]].item}}</div>
+     <ion-scroll class='content' scrollbar-y='false'>
+     {{myRows2[curSubcat.id][slideIndex[curSubcat.id]].content}}
+     </ion-scroll>
+  </div>
+  <div class="btn-box">
+    <a class="button button-icon icon ion-android-arrow-back btn-back-list" ng-click='backList()'></a>
+    <a class="button button-icon icon" ng-class='{"ion-play": !isPlay, "ion-pause":isPlay}' ng-click='togglePlay()'></a>     
+    <a class="button button-icon icon ion-ios-star" ng-class='{stared: myRows2[curSubcat.id][slideIndex[curSubcat.id]]._favorite}' ng-click='toggleFavorite(myRows2[curSubcat.id][slideIndex[curSubcat.id]], myRows2[curSubcat.id])'></a> 
+    <a class="button button-icon icon ion-trash-a" ng-click='remove($event, myRows2[curSubcat.id][slideIndex[curSubcat.id]], myRows2[curSubcat.id], "slide")'></a>    
+    <a class="button button-icon icon   ion-clipboard" ng-click='copy(myRows2[curSubcat.id][slideIndex[curSubcat.id]].content)'></a>
+  </div>  
+</ion-content>  
