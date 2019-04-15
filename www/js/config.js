@@ -10,7 +10,7 @@ var guid = new GUID();
 			playInterval: 5
 		};
 	}
-var host = setting.host || '192.168.191.1'
+var host = setting.host || '192.168.3.13'
 
 
 var config =

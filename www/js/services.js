@@ -49,6 +49,10 @@ angular.module('starter.services', [])
 
             var row = result.rows.item(i);
             row._favorite = row.favorite;
+            var tagList = row.tag.split('###')
+            row.photo = tagList[2] || ''
+            // if (i == 0)
+            // alert(row.photo)
             rows.push(row);
           }
 

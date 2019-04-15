@@ -17,8 +17,8 @@
           <div class="input-label">
                 分类
           </div>
-          <select ng-model='addform.type'>
-            <option ng-value="cat.id" ng-repeat='cat in curScope.subcats'>{{cat.name}}</option>
+          <select ng-model='addform.type' ng-options="cat.id as cat.name for cat in curScope.subcats">     
+            <!-- <option ng-value="cat.id" ng-repeat='cat in curScope.subcats'>{{cat.name}}</option> -->
           </select>
         </label>
 <!--         <input type="text" ng-model="test">

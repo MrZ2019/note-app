@@ -2,9 +2,84 @@ var db = openDatabase('mynote', '1', 'database', 4096*1024);
 
 
 angular.module('starter.controllers', [])
+.directive('cardPhoto', function() {
+
+	return {
+		restrict: 'A',
+		scope: {
+			photo: '@'
+		},
+
+		link: function(scope, elm, attrs) {
+			// debugger
+			elm.src = scope.photo
+
+			// alert(scope.photo)
+
+			console.log(scope)
+		}
+	}
+})
 .controller('MainCtrl', function($scope, $rootScope,  $http,
 	$ionicModal,  $ionicPopover, $ionicPopup, $ionicLoading,$ionicBackdrop, MainSvr, ToastSvr, SentenceSvr, CommentSvr, JokeSvr, NoteSvr, StorySvr, ProgrammingSvr, TreasureSvr) {
 
+
+	$rootScope.cameraGetPicture = cameraGetPicture
+	$rootScope.enableScroll = false
+	$rootScope.src = 'content://com.android.prodiders.media.documents/document/image%3A443930'
+
+	setTimeout(function() {
+
+		// document.getElementsByClassName('tab-content-scroll')[0].setAttribute('scroll', true);
+
+		// $rootScope.$apply()
+	}, 500)
+
+	function cameraGetPicture(row) {
+
+		$rootScope.lastEditPhotoRow = row
+		// alert(navigator.camera)
+   navigator.camera.getPicture(onSuccess, onFail, { quality: 50,
+      destinationType: Camera.DestinationType.FILE_URI ,
+      sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM 
+   });
+
+   function onSuccess(imageURL) {
+   	var row = $rootScope.lastEditPhotoRow
+      var log = document.getElementById('log');
+      log.innerHTML = imageURL;
+     var image = document.getElementById('myImage');
+      image.src = imageURL;
+
+
+      // alert(image.src)
+      
+      table = location.hash.replace('#/tab/', '')
+
+      var tagList = row.tag.split('###');
+
+      var newTag = tagList[0] + '###' + tagList[1]  + '###' + imageURL
+
+      // alert(newTag)
+      db.transaction(function(tx) {
+
+      	tx.executeSql('update ' + table + ' set tag=? where id=?',
+      		[newTag, row.id],
+      		function(result, tx) {
+      			ToastSvr.show('编辑图片成功') 
+
+      			$rootScope.curScope.refreshData($rootScope.curScope.curSubcat.id)
+      	}, function(result, err) {
+      		ToastSvr.show('编辑失败')
+      	})
+      })
+   }
+
+   function onFail(message) {
+      alert('Failed because: ' + message);
+   }
+
+}
 	var table;
 	$ionicModal.fromTemplateUrl('templates/add-text.html', {
 	    scope: $scope
@@ -19,10 +94,11 @@ angular.module('starter.controllers', [])
 
 		if (row && row.id !== undefined) {
 			$rootScope.addform = row;
-			$rootScope.addform.tag2 = row.tag.split('###')[0]
+			$rootScope.addform.tag2 = row.tag.split('###')[0] || ''
 		}else {
 			$rootScope.addform = {}
 		}
+		// debugger
 
 		table = location.hash.replace('#/tab/', '')
 
@@ -55,7 +131,7 @@ angular.module('starter.controllers', [])
 						let dateStr = getDate();
 
 						// data.forEach(function(row) {
-							tx.executeSql(sql, [minId - 1, $rootScope.addform.content, $rootScope.curScope.curSubcat.id, new Date() - 0, $rootScope.addform.tag2 + '###' + dateStr], function(tx,result) {
+							tx.executeSql(sql, [minId - 1, $rootScope.addform.content,  $rootScope.addform.type, new Date() - 0, ($rootScope.addform.tag2 || '') + '###' + dateStr], function(tx,result) {
 								ToastSvr.show('添加成功')
 								$scope.modal.hide();
 
@@ -73,10 +149,10 @@ angular.module('starter.controllers', [])
 		} else {
 			db.transaction(function(tx) {
 
-				tx.executeSql('update ' + table + ' set content=?, tag=? where id=?',
-					[ $rootScope.addform.content,$rootScope.addform.tag2 + '###' + $rootScope.addform.tag.split('###')[1], $rootScope.addform.id],
+				tx.executeSql('update ' + table + ' set content=?, tag=?, type=? where id=?',
+					[ $rootScope.addform.content,$rootScope.addform.tag2 + '###' + $rootScope.addform.tag.split('###')[1], $rootScope.addform.type, $rootScope.addform.id],
 					function(result, tx) {
-						ToastSvr.show('编辑成功')
+						ToastSvr.show('编辑成功') 
 						$scope.modal.hide();
 
 						$rootScope.curScope.refreshData($rootScope.curScope.curSubcat.id)
@@ -398,6 +474,8 @@ angular.module('starter.controllers', [])
 			else {
 				removeEntry(row, data, data.table);
 			}
+		} else if($event.gesture.direction == 'left') {
+			$rootScope.cameraGetPicture(row)
 		}
 	}
 
@@ -426,6 +504,20 @@ angular.module('starter.controllers', [])
         }, "MyPlugin", "", [text]);
 
         $rootScope.popover.hide();
+	}
+	$rootScope.getFile = function(uri) {
+		// alert(uri)
+        PhoneGap.exec(function(msg) {
+            ToastSvr.show(msg);
+        }, function(err) {
+            //ToastSvr.show('失败' + err);
+            // alert(err)
+            // $rootScope.log = err
+            // $rootScope.$apply()
+
+        }, "MyPlugin", "getFile", [uri]);
+
+        // $rootScope.popover.hide();
 	}
 
 

@@ -3,3 +3,11 @@
   color: #aaa;
   font-size: 14px
 }
+
+.slider .slider-slide{
+    overflow: hidden;
+}
+
+.card img{
+    width: 100%;
+}

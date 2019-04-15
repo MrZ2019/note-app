@@ -45,12 +45,22 @@ angular.module('starter.controllers')
 				var strs = rows[i].tag.split('###')
 				rows[i].date = strs[1];
 				rows[i].tag2 = strs[0];
+				rows[i].photo = strs[2];
+
+				if (strs[2]) {
+					$rootScope.getFile(strs[2])
+				}
 			}
 			myRows[type] = rows;
 			$scope.myRows2[type] = [].concat(rows);
 			$scope.myRows2[type].table = 'sentence';
 			$scope.slideIndex[type] = 0;
 			$scope.hasData[type] = true;
+
+			setTimeout(function() {
+
+			}, 500);
+
 			callback();
 		}, type)		
 	}
