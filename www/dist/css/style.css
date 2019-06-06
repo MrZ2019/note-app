@@ -1,0 +1,38 @@
+/* Empty. Add your own CSS if you like */
+.input-label {
+  color: #aaa;
+  font-size: 14px
+}
+
+.slider .slider-slide{
+    overflow: hidden;
+}
+
+img{
+    width: 60%;
+    margin: auto;
+    display: block;
+}
+
+.pswp__img {
+	height: auto!important;
+}
+
+.tabs-top > .tabs, .tabs.tabs-top {
+	border: none;
+}
+.item {
+    border: none;
+}
+
+.btn-update {
+    width: 74px;
+}
+
+.author {
+	display: none;
+}
+
+.setting-theme {
+	display: none;
+}

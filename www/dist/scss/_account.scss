@@ -1,0 +1,42 @@
+.setting-theme{
+  span{
+    display: inline-block;
+    height: 20px;
+    width: 40px;
+  }
+  input{
+    height: 20px;
+    width: 40px;
+    position: absolute;
+    opacity: 0;
+  } 
+  label{     
+    margin-left: 5px;
+    float: right;
+  }
+  .theme-orange{
+    background: #F88C29;
+  }
+  .theme-green{
+    background: green;
+  }
+  .theme-blue{ 
+    background: #1A3675;
+  }
+  input:checked+span:after {
+    -webkit-transition: opacity 0.05s ease-in-out;
+    transition: opacity 0.05s ease-in-out;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: relative;
+    top: 4px;
+    left: 15px;
+    display: table;
+    width: 13px;
+    height: 8px;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-right: 0;
+    content: ' ';
+  }
+}

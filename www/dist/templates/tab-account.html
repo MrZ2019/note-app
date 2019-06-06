@@ -1,0 +1,103 @@
+<ion-view view-title="设置">
+  <ion-content class='padding'>
+    <ion-list>
+    <div class="item a-left">
+    		<button class="button button-default" ng-click='restore()'>初始化</button>
+    		<button class="button button-default btn-update" ng-click='updateData()' on-hold='reload()'>更新</button>
+    		<!-- <button class="button button-balanced" ng-click='updateApp()'>更新App</button> -->
+    </div>
+	 <div class="item item-toggle">
+	     删除确认
+	     <label class="toggle toggle-assertive">
+	       <input type="checkbox" ng-model='setting.deleteConfirm' ng-change='saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+	 <div class="item item-toggle">
+	     乱序
+	     <label class="toggle toggle-calm">
+	       <input type="checkbox" ng-model='setting.isShuffle' ng-change='onShuffleChange();refresh();saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+	 <div class="item item-toggle">
+	     升序
+	     <label class="toggle toggle-calm">
+	       <input type="checkbox" ng-model='setting.isAsc' ng-change='onAscChange();refresh();saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+	 <div class="item item-toggle">
+	     显示标签
+	     <label class="toggle toggle-calm">
+	       <input type="checkbox" ng-model='setting.showItem' ng-change='saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+	 <div class="item item-toggle">
+	     显示日期
+	     <label class="toggle toggle-calm">
+	       <input type="checkbox" ng-model='setting.showDate' ng-change='saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+	 <div class="item item-toggle">
+	     显示图片
+	     <label class="toggle toggle-calm">
+	       <input type="checkbox" ng-model='setting.showPhoto' ng-change='saveSetting()'>
+	       <div class="track">
+	         <div class="handle"></div>
+	       </div>
+	     </label>
+	  </div>
+<!-- 		<div class="item range">
+			播放间隔({{setting.playInterval}}s)
+		  <input type="range" name="volume" max='20' min='1' ng-model='setting.playInterval' ng-change='onIntervalChange()'>
+		  <i class="icon ion-clock"></i>
+		</div> -->
+	  <ion-item ui-sref='tab.account-statistic'>
+	     统计数据
+	  </ion-item>
+	  <!-- <ion-item> -->
+	  	   <!-- 主机 -->
+	  	   <label class="item item-input">
+	  	     <input type="text" ng-model='setting.host' ng-keyup='saveSetting()'>
+	  	   </label>
+	  	<!-- </div> -->
+    <!-- </ion-item> -->
+    <ion-item class="item setting-theme">
+        主题选择
+        <label  ng-click="changeTheme('blue')">
+            <input type="radio" name="group" ng-checked="theme=='blue'">
+            <span class="theme-blue"></span>
+        </label>
+        <label  ng-click="changeTheme('green')">
+            <input type="radio" name="group" ng-checked="theme=='green'">
+            <span class="theme-green"></span>
+        </label>
+        <label  ng-click="changeTheme('orange')">
+            <input type="radio" name="group" ng-checked="theme=='orange'">
+            <span class="theme-orange"></span>
+        </label>
+
+    </ion-item>
+  <div class="item author">
+	  	作者： arthur <br/>
+	  	邮箱： 1131944090@qq.com
+	  </div>
+	  <div class="item info">
+	  	最近数据更新: {{(setting.lastUpdate||'无')|date}}
+	  </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

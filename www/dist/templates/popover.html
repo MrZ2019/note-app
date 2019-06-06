@@ -1,0 +1,10 @@
+<ion-popover-view class='entry-popover'>
+	<ion-content>
+		<ion-list>
+			<ion-item ng-click="removeFromPop()">删除</ion-item>
+			<ion-item ng-click="favorite()" ng-if='!row._favorite'>收藏</ion-item>
+			<ion-item ng-click="unfavorite()" ng-if='row._favorite'>取消收藏</ion-item>
+			<ion-item ng-click="copy()">复制文本</ion-item>
+		</ion-list>
+	</ion-content>	
+</ion-popover-view>

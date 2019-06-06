@@ -1,0 +1,16 @@
+<ion-view view-title="统计">
+<ion-content class='padding'>
+  <ion-refresher on-refresh="loadStatistics()" pulling-text="松开即可刷新..." refreshing-text="正在更新..."
+         refreshing-icon="ion-loading-c"></ion-refresher>
+	<ion-list>
+		<ion-item ng-repeat='item in items'>
+		<span class="fleft">
+			{{item.displayName}}
+		</span>
+		<span class="fright">
+			{{item.max}}条
+		</span>
+		</ion-item>
+	</ion-list>
+</ion-content>
+</ion-view>
